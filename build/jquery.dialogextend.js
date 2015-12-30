@@ -446,10 +446,12 @@
         fixedContainer = $('<div id="dialog-extend-fixed-container"></div>').appendTo("body");
         fixedContainer.css({
           "position": "fixed",
-          "bottom": 1,
+          // "bottom": 1,
+          "top": 1,
           "left": 1,
           "right": 1,
-          "z-index": 9999
+          "z-index": 9999,
+          "pointer-events": "none",
         });
       }
       this._toggleButtons("minimized");
@@ -457,7 +459,8 @@
       $(this.element[0]).dialog("widget").find('.ui-dialog-titlebar').clone(true, true).appendTo(dialogcontrols);
       dialogcontrols.css({
         "float": this.options.minimizeLocation,
-        "margin": 1
+        "margin": 1,
+        "pointer-events": "auto",
       });
       fixedContainer.append(dialogcontrols);
       $(this.element[0]).data("dialog-extend-minimize-controls", dialogcontrols);
